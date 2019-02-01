@@ -3,9 +3,9 @@ import formatNumber from "format-number";
 import photographer from "./images/girl.png";
 import "./App.css";
 import {store} from './store';
+import {bankTransaction} from './actions';
 
 class App extends Component {
-
   render() {
     return (
       <div className="App">
@@ -31,15 +31,7 @@ class App extends Component {
 
 function dispatchBtnAction(e) {
     const amount = e.target.dataset.amount;
-    console.log(amount, 'ama');
     store.dispatch(bankTransaction(amount));
-}
-
-function bankTransaction (number) {
-    return {
-        type: "WITHDRAW_MONEY",
-        amount: number
-    }
 }
 
 export default App;
